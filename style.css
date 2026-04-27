@@ -9,11 +9,11 @@ button,input{font:inherit;border:0;background:none;color:inherit}button{cursor:p
   overflow: hidden;
 }
 
-.decor {
-  position: absolute;
-  border-radius: 50%;
-  background: #4052E4;
-  z-index: 1;
+.decor{
+  position:absolute;
+  border-radius:999px;
+  pointer-events:none;
+  z-index:0;
 }
 
 .decor-left {
@@ -176,4 +176,8 @@ button,input{font:inherit;border:0;background:none;color:inherit}button{cursor:p
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+}
+.page > * {
+  position: relative;
+  z-index: 2;
 }
