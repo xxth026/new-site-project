@@ -177,7 +177,7 @@ button,input{font:inherit;border:0;background:none;color:inherit}button{cursor:p
     transform: translate(-50%, -50%) scale(1);
   }
 }
-.page > * {
+.page > *:not(.decor) {
   position: relative;
   z-index: 2;
 }
