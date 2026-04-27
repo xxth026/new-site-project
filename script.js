@@ -166,3 +166,5 @@ function render() {
   history.replaceState({}, "", "/");
   renderLanding();
 }
+window.addEventListener('popstate', render);
+render();
