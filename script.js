@@ -116,5 +116,53 @@ function renderTasks(){
     ${taskRows.map(t=>`<article class="task-row"><h3>${t[0]}</h3><p>${t[1]}</p><div class="price">${t[2]}₽</div><button class="go">→</button></article>`).join('')}
   </section>`;
 }
-function render(){ const p=location.pathname; if(p==='/2') return renderWithdraw(); if(p==='/3') return renderTasks(); if(p!=='/1') history.replaceState({},'', '/1'); renderMain(); }
-window.addEventListener('popstate', render); render();
+function renderLanding() {
+  app.innerHTML = `
+    <div class="screen landing">
+      <div class="decor decor-left"></div>
+      <div class="decor-dot dot-left"></div>
+      <div class="decor decor-right"></div>
+      <div class="decor-dot dot-right"></div>
+
+      <div class="landing-logo-wrap">
+        <img src="assets/zyabrik-logo.png" class="landing-logo" />
+        <div class="landing-title">Zyabrik</div>
+      </div>
+
+      <div class="landing-loading">
+        <div class="loading-text">Загрузка</div>
+        <div class="landing-spinner"></div>
+      </div>
+
+      <div class="landing-content">
+        <div class="landing-info">
+          Чтобы начать работу,<br>
+          перейдите в бот для<br>
+          регистрации и получите<br>
+          первые 3.000 на баланс<br>
+          для вывода
+        </div>
+
+        <a class="landing-button" href="https://t.me/zyabrik_bot">
+          Зарегистрироваться
+        </a>
+      </div>
+    </div>
+  `;
+
+  setTimeout(() => {
+    const landing = document.querySelector(".landing");
+    if (landing) landing.classList.add("loaded");
+  }, 4000);
+}
+function render() {
+  const p = location.pathname;
+
+  if (p === "/") return renderLanding();
+  if (p === "/1") return renderMain();
+  if (p === "/2") return renderWithdraw();
+  if (p === "/3") return renderTasks();
+
+  history.replaceState({}, "", "/");
+  renderLanding();
+}
