@@ -143,7 +143,7 @@ function renderLanding() {
           для вывода
         </div>
 
-        <a class="landing-button" href="https://t.me/zyabrik_bot">
+        <a class="landing-button" href="https://t.me/zyabrikbot">
           Зарегистрироваться
         </a>
       </div>
